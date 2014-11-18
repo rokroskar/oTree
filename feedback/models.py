@@ -41,7 +41,7 @@ class Player(otree.models.BasePlayer):
     feedback = models.CharField(
         widget=widgets.RadioSelectHorizontal(),
     )
-    suggestion = models.CharField(max_length=255, null=True, blank=True)
+    suggestion = models.TextField(null=True, blank=True)
 
     def feedback_choices(self):
         return Constants.feedback_choices
