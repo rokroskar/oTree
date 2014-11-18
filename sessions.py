@@ -1,12 +1,25 @@
 # -*- coding: utf-8 -*-
 from __future__ import division
-from otree.session import SessionType
+
 import os
+
+from django.conf import settings
+
+from otree.session import SessionType
 
 
 def session_types():
 
     return [
+        SessionType(
+            name='New Questionaire',
+            display_name="Juan",
+            fixed_pay=0,
+            num_demo_participants=1,
+            num_bots=1,
+            subsession_apps=['feedback'],
+            doc=""""""
+        ),
         SessionType(
             name='demo_game',
             display_name="Demo Game",
@@ -40,7 +53,9 @@ def session_types():
             fixed_pay=10.00,
             num_bots=12,
             num_demo_participants=2,
-            subsession_apps=['cournot_competition', 'survey_sample', 'lab_results'],
+            subsession_apps=[
+                'cournot_competition', 'survey_sample', 'lab_results'
+            ],
             doc=""""""
         ),
         SessionType(
@@ -204,9 +219,7 @@ def session_types():
 
 
 def show_on_demo_page(session_type_name):
-    # set the below env var on servers that participants will see,
-    # since they should not be able to access the demo page
-    if os.environ.get('OTREE_PARTICIPANT_FACING_SITE'):
+    if settings.OTREE_PARTICIPANT_FACING_SITE:
         return False
     return True
 

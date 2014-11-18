@@ -8,7 +8,7 @@ from .models import Constants
 class Feedback(Page):
 
     form_model = models.Player
-    form_fields = ['feedback']
+    form_fields = ['feedback', 'suggestion']
 
     def participate_condition(self):
         return True
@@ -17,6 +17,7 @@ class Feedback(Page):
 
     def after_next_button(self):
         self.player.payoff = 0
+
 
 def pages():
     return [Feedback]

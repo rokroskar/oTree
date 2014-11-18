@@ -1,29 +1,41 @@
+
+
 import os
 import otree.settings
 import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-if os.environ.get('OTREE_PRODUCTION'):
+
+OTREE_PRODUCTION = os.environ.get('OTREE_PRODUCTION')
+if OTREE_PRODUCTION:
     DEBUG = False
 else:
     DEBUG = True
 
-if os.environ.get('IS_OTREE_DOT_ORG'):
+
+# set the below env var on servers that participants will see,
+    # since they should not be able to access the demo page
+OTREE_PARTICIPANT_FACING_SITE = os.environ.get('OTREE_PARTICIPANT_FACING_SITE')
+
+
+IS_OTREE_DOT_ORG = os.environ.get('IS_OTREE_DOT_ORG')
+if IS_OTREE_DOT_ORG:
     ADMIN_PASSWORD = os.environ['OTREE_ADMIN_PASSWORD']
     SECRET_KEY = os.environ['OTREE_SECRET_KEY']
 else:
     ADMIN_PASSWORD = 'otree'
     # don't share this with anybody.
-    # Change this to something unique (e.g. mash your keyboard), and then delete this comment.
-    SECRET_KEY = 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
+    # Change this to something unique (e.g. mash your keyboard), and
+    # then delete this comment.
+    SECRET_KEY = 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
 
 
-
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config(
-    default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-)
+DATABASES = {
+    'default': dj_database_url.config(
+        default='sqlite:///{}/{}'.format(BASE_DIR, 'db.sqlite3')
+    )
+}
 
 
 CREATE_DEFAULT_SUPERUSER = True
