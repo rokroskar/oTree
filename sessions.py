@@ -12,8 +12,8 @@ def session_types():
 
     return [
         SessionType(
-            name='New Questionaire',
-            display_name="Juan",
+            name='new_questionaire',
+            display_name="New Questionaire",
             fixed_pay=0,
             num_demo_participants=1,
             num_bots=1,
@@ -44,7 +44,7 @@ def session_types():
             fixed_pay=4.00,
             num_demo_participants=2,
             num_bots=2,
-            subsession_apps=['prisoner', 'survey_sample', 'lab_results'],
+            subsession_apps=['prisoner', 'feedback', 'lab_results'],
             doc=""""""
         ),
         SessionType(
@@ -54,7 +54,7 @@ def session_types():
             num_bots=12,
             num_demo_participants=2,
             subsession_apps=[
-                'cournot_competition', 'survey_sample', 'lab_results'
+                'cournot_competition', 'feedback', 'lab_results'
             ],
             doc=""""""
         ),
@@ -82,7 +82,7 @@ def session_types():
             fixed_pay=10.00,
             num_bots=12,
             num_demo_participants=2,
-            subsession_apps=['matching_pennies', 'survey_sample', 'lab_results'],
+            subsession_apps=['matching_pennies', 'feedback', 'lab_results'],
             doc=""""""
         ),
         SessionType(
@@ -118,7 +118,7 @@ def session_types():
             fixed_pay=10.00,
             num_bots=10,
             num_demo_participants=5,
-            subsession_apps=['beauty', 'survey_sample', 'lab_results'],
+            subsession_apps=['beauty', 'feedback', 'lab_results'],
             doc=""""""
         ),
         SessionType(
@@ -137,7 +137,9 @@ def session_types():
             num_bots=12,
             money_per_point=0.01,
             num_demo_participants=2,
-            subsession_apps=['stackelberg_competition', 'survey_sample', 'lab_results'],
+            subsession_apps=[
+                'stackelberg_competition', 'feedback', 'lab_results'
+            ],
             doc=""""""
         ),
         SessionType(
@@ -182,7 +184,7 @@ def session_types():
             fixed_pay=10.00,
             num_bots=12,
             num_demo_participants=2,
-            subsession_apps=['stag_hunt', 'survey_sample', 'lab_results'],
+            subsession_apps=['stag_hunt', 'feedback', 'lab_results'],
             doc=""""""
         ),
         SessionType(
@@ -192,7 +194,7 @@ def session_types():
             num_bots=12,
             num_demo_participants=2,
             subsession_apps=[
-                'battle_of_the_sexes', 'survey_sample', 'lab_results'
+                'battle_of_the_sexes', 'feedback', 'lab_results'
             ],
             doc=""""""
         ),

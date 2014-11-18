@@ -13,5 +13,6 @@ class PlayerBot(Bot):
 
         self.submit(
             views.Feedback,
-            {'feedback': random.choice(Constants.feedback_choices)}
+            {'feedback': random.choice(Constants.feedback_choices),
+             'suggestion': unicode(random.random())}
         )
