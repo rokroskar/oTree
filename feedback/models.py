@@ -39,7 +39,7 @@ class Player(otree.models.BasePlayer):
     # </built-in>
 
     feedback = models.CharField(
-        widget=widgets.RadioSelectHorizontal(),
+        widget=widgets.RadioSelectHorizontal(), null=True, blank=True
     )
     suggestion = models.TextField(null=True, blank=True)
 
