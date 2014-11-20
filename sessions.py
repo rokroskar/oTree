@@ -12,21 +12,21 @@ def session_types():
 
     return [
         SessionType(
-            name='new_questionaire',
-            display_name="New Questionaire",
-            fixed_pay=0,
-            num_demo_participants=1,
-            num_bots=1,
-            subsession_apps=['feedback'],
-            doc=""""""
-        ),
-        SessionType(
             name='demo_game',
             display_name="Demo Game",
             fixed_pay=0,
             num_demo_participants=1,
             num_bots=1,
             subsession_apps=['demo_game'],
+            doc=""""""
+        ),
+        SessionType(
+            name='demo_questionaire',
+            display_name="Demo Questionaire",
+            fixed_pay=0,
+            num_demo_participants=1,
+            num_bots=1,
+            subsession_apps=['feedback'],
             doc=""""""
         ),
         SessionType(
