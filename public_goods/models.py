@@ -55,13 +55,15 @@ class Group(otree.models.BaseGroup):
     subsession = models.ForeignKey(Subsession)
     # </built-in>
 
+    total_contribution = models.CurrencyField()
+
+    individual_share = models.CurrencyField()
 
     def set_payoffs(self):
-        contributions = sum([p.contribution for p in self.get_players()])
-        individual_share = contributions * Constants.efficiency_factor / Constants.players_per_group
+        self.total_contribution = sum([p.contribution for p in self.get_players()])
+        self.individual_share = self.total_contribution * Constants.efficiency_factor / Constants.players_per_group
         for p in self.get_players():
-            p.payoff = (Constants.endowment - p.contribution) + individual_share
-            p.payoff = p.payoff / Constants.endowment
+            p.payoff = (Constants.endowment - p.contribution) + self.individual_share + Constants.base_points
 
 
 class Player(otree.models.BasePlayer):
@@ -72,11 +74,9 @@ class Player(otree.models.BasePlayer):
     # </built-in>
 
     contribution = models.CurrencyField(
+        bounds=[0, Constants.endowment],
         doc="""The amount contributed by the player""",
     )
-
-    def contribution_bounds(self):
-        return [0, Constants.endowment]
 
     question = models.CurrencyField()
 
