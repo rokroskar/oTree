@@ -120,17 +120,20 @@ class Group(otree.models.BaseGroup):
 
     agent_fixed_pay = models.CurrencyField(
         doc="""Amount offered as fixed pay to agent""",
+        bounds=[Constants.min_fixed_payment, Constants.max_fixed_payment],
         verbose_name='Fixed Payment (from %i to %i)' % (
             Constants.min_fixed_payment, Constants.max_fixed_payment)
     )
 
     agent_return_share = models.FloatField(
+        choices=Constants.agent_return_share_choices,
         doc="""Agent's share of total return""",
         verbose_name='Return Share',
         widget=widgets.RadioSelectHorizontal()
     )
 
     agent_work_effort = models.PositiveIntegerField(
+        choices=range(1, 10+1),
         doc="""Agent's work effort, [1, 10]""",
         widget=widgets.RadioSelectHorizontal(),
     )
@@ -147,15 +150,6 @@ class Group(otree.models.BaseGroup):
             (False, 'Reject'),
             )
     )
-
-    def agent_fixed_pay_bounds(self):
-        return [Constants.min_fixed_payment, Constants.max_fixed_payment]
-
-    def agent_work_effort_choices(self):
-        return range(1, 10+1)
-
-    def agent_return_share_choices(self):
-        return Constants.agent_return_share_choices
 
     def set_payoffs(self):
         principal = self.get_player_by_role('principal')
