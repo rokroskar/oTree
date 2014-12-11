@@ -1,6 +1,6 @@
 # Wiki documentation
 
-General: a clear, step-by-step walkthrough of all the parts required for making a custom app is missing. Most of the parts are there, but it's not entirely obvious 
+General: a clear, step-by-step walkthrough of all the parts required for making a custom app is missing. Most of the parts are there, but it's not very clear, especially for a novice programmer/user. 
 
 ## Install instructions
 
@@ -43,6 +43,14 @@ How do the bots get assigned to different groups?
 * add a note that tells you how to clean up the sessions? (i.e. remove them from the list in ``sessions.py``)
 * add some user interface pointers
 * is there a way to use bots to see how the admin interface functions with fake participants? 
+* instructions say to copy the "lab link" but I don't see one? 
+* enumerate the two options for opening URLs to make it clearer -- at the moment it says "there are two ways to open URLs" but it's not obvious what the two different ways are. 
+* it's a bit unclear where the player registration links are -- they are found under "Participant URLs" on each session page 
+
+## For Django Devs
+
+this page is mis-labeled -- should be "For Games Developers" or something similar? 
+
 
 
 
