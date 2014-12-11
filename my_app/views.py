@@ -23,7 +23,7 @@ class MyPage(Page):
     def participate_condition(self):
         return True
 
-    template_name = 'my_app/Base.html'
+    template_name = 'my_app/MyPage.html'
 
     def variables_for_template(self):
         return {
@@ -39,7 +39,7 @@ class ResultsWaitPage(WaitPage):
 
 class Results(Page):
 
-    template_name = 'my_app/ResultsTable.html'
+    template_name = 'my_app/Results.html'
 
 
 def pages():

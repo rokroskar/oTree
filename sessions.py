@@ -107,6 +107,7 @@ def session_types():
             display_name="Stackelberg Competition",
             money_per_point=0.01,
             num_demo_participants=2,
+            num_bots = 50,
             subsession_apps=[
                 'stackelberg_competition', 'survey_sample', 'lab_results'
             ],
@@ -169,6 +170,14 @@ def session_types():
             num_demo_participants=1,
             subsession_apps=[
                 'real_effort',
+            ],
+        ),
+        SessionType(
+            name='my_app',
+            display_name="my app",
+            num_demo_participants=1,
+            subsession_apps=[
+                'my_app',
             ],
         ),
     ]

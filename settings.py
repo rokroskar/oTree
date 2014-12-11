@@ -82,6 +82,7 @@ INSTALLED_OTREE_APPS = [
     'feedback',
     'ultimatum',
     'real_effort',
+    'my_app',
 ]
 
 
