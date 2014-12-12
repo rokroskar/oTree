@@ -8,6 +8,8 @@ some "advanced" features that would be nice in the tutorials:
 * getting the data
 * plotting
 
+Can we define a set of 2-3 games ranging from super simple (prisoner's dilemma) to more complex with a more involved group/session structure. Then we can build a few tutorials to highlight the important features of the API. 
+
 ## Install instructions/Prerequisites
 
 * add some useful links to intro python tutorials
